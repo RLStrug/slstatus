@@ -36,8 +36,8 @@ slstatus.o: slstatus.c slstatus.h arg.h config.h config.mk $(REQ:=.h)
 .c.o:
 	$(CC) -o $@ -c $(CPPFLAGS) $(CFLAGS) $<
 
-config.h:
-	cp config.def.h $@
+config.h: config.def.h
+	cp $< $@
 
 slstatus: slstatus.o $(COM:=.o) $(REQ:=.o)
 	$(CC) -o $@ $(LDFLAGS) $(COM:=.o) $(REQ:=.o) slstatus.o $(LDLIBS)

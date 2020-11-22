@@ -63,5 +63,17 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function format          argument */
-	{ datetime, "%s",           "%F %T" },
+	{ disk_free,         "Disk: %s | ",   "/home" },
+	{ cpu_perc,          "CPU: %3s%% | ", NULL },
+	{ ram_perc,          "RAM: %3s%% | ", NULL },
+	{ run_command,       "VOL: %4s",      "pactl list sinks | grep Volume.: | grep -o '[0-9]*%' | head -1" },
+	{ run_command,       "%s| ",          "pactl list sinks | grep -q 'Sourdine.: oui' && echo -n ' (muted) ' || echo -n ' '" },
+	// { vol_perc,          "Volume: %3s%% | ", "/dev/snd/hwC0D0" },
+	{ wifi_essid,        "Wifi: %s ",     "wlp7s0" },
+	{ wifi_perc,         "[%3s%%] ",      "wlp7s0" },
+	// { ipv4,              "(%s) | ",       "wlp7s0" },
+	{ battery_state,     "POW: %s ",      "BAT0" },
+	{ battery_perc,      "%3s%% ",        "BAT0" },
+	{ battery_remaining, "(%s) | ",       "BAT0" },
+	{ datetime,          "%s",            "%a %d %B %Y %T" },
 };
